@@ -23,8 +23,8 @@ function board_position(row,col)
     im_gray = rgb2gray(im_crop);
     
     % Detect how many zero(white) values in the image
-    n = nnz(im_gray); %返回矩阵X中非零元素的个数
-    m = numel(im_gray); %返回元素个数
+    n = nnz(im_gray); %杩斿洖鐭╅樀X涓潪闆跺厓绱犵殑涓暟
+    m = numel(im_gray); %杩斿洖鍏冪礌涓暟
     
     if all(im_gray(:) == im_gray(1))
         disp('Empty board');

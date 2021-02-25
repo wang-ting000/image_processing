@@ -39,6 +39,7 @@ function board_position(row,col)
     end
     
     % Display the croped image
+    
     imshow(im_gray)
 
 end

@@ -1,3 +1,5 @@
+#crop an area and determine black or white
+
 import cv2
 import numpy as np
 

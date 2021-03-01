@@ -1,4 +1,5 @@
-%% Activity 2: Spot the Difference 
+%% Activity 2: Spot the Difference
+
 im = imread('spot_the_difference.png');
 im_info = imfinfo('spot_the_difference.png') %该函数用于获取一张图片的具体信息。这些具体信息包括图片的格式、尺寸、颜色数量、修改时间等等
 im1 = im(:,1:350,:);  

@@ -1,23 +1,23 @@
 %% Activity 2: Spot the Difference 
 im = imread('spot_the_difference.png');
-im_info = imfinfo('spot_the_difference.png') %¸Ãº¯ÊıÓÃÓÚ»ñÈ¡Ò»ÕÅÍ¼Æ¬µÄ¾ßÌåĞÅÏ¢¡£ÕâĞ©¾ßÌåĞÅÏ¢°üÀ¨Í¼Æ¬µÄ¸ñÊ½¡¢³ß´ç¡¢ÑÕÉ«ÊıÁ¿¡¢ĞŞ¸ÄÊ±¼äµÈµÈ
+im_info = imfinfo('spot_the_difference.png') %è¯¥å‡½æ•°ç”¨äºè·å–ä¸€å¼ å›¾ç‰‡çš„å…·ä½“ä¿¡æ¯ã€‚è¿™äº›å…·ä½“ä¿¡æ¯åŒ…æ‹¬å›¾ç‰‡çš„æ ¼å¼ã€å°ºå¯¸ã€é¢œè‰²æ•°é‡ã€ä¿®æ”¹æ—¶é—´ç­‰ç­‰
 im1 = im(:,1:350,:);  
-im2 = im(:,351:700,:);  %Á½ÕÅÍ¼·Ö±ğÕ¼¾İÒ»°ëµÄ¿í¶È
-im_diff=im1-im2;  %ÕÒ²î±ğ
+im2 = im(:,351:700,:);  %ä¸¤å¼ å›¾åˆ†åˆ«å æ®ä¸€åŠçš„å®½åº¦
+im_diff=im1-im2;  %æ‰¾å·®åˆ«
 im_diff=rgb2gray(im_diff);
-im_diff=im_diff>40; %TrueÔòÎª1£¬FalseÎª0
+im_diff=im_diff>40; %Trueåˆ™ä¸º1ï¼ŒFalseä¸º0
 
 
-im_diff=cat(3,im_diff*255,zeros(size(im_diff)),zeros(size(im_diff))); %¹¹ÔìnÎ¬Êı×é£¬n=3;²î±ğ¹ı´óµÄÏñËØ±ê×¢³öÀ´ÇÒÎªºìÉ«
+im_diff=cat(3,im_diff*255,zeros(size(im_diff)),zeros(size(im_diff))); %æ„é€ nç»´æ•°ç»„ï¼Œn=3;å·®åˆ«è¿‡å¤§çš„åƒç´ æ ‡æ³¨å‡ºæ¥ä¸”ä¸ºçº¢è‰²
 
 
 se=strel('square',20);
-imdilate(im_diff,se)
-disp(bwconncomp(im_diff))
+im_diff_dilated = imdilate(im_diff,se)
+disp(bwconncomp(im_diff_dilated))
 im_diff=uint8(im_diff);
 
 im_diff = imlincomb(0.4,im1,10,im_diff,'uint8');
-%%¼ÆËãÏßĞÔ×éºÏ0.4*im1+10*im_diff£¬Ó¦¸ÃÊÇµ÷½ÚÁÁ¶ÈµÄ
+%%è®¡ç®—çº¿æ€§ç»„åˆ0.4*im1+10*im_diffï¼Œåº”è¯¥æ˜¯è°ƒèŠ‚äº®åº¦çš„
 figure;
 subplot(1,3,1);imshow(im1);
 subplot(1,3,2);imshow(im2);

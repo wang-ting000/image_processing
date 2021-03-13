@@ -1,7 +1,11 @@
 # image_processing
 digital image processing
 
-some practices for homework and learning
+1. 阈值处理  
+
+```retval,otsu = cv2.threshold(grayscales,125,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)```
+
+#**some practices for homework and learning**
 
 # tutorial 1
 

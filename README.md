@@ -34,6 +34,13 @@ or
         
         imgCanny = cv2.Canny(img,100,100)
         
+or
+
+边缘检测（微分）
+
+            lapcian = cv2.Laplacian(img,cv2.CV_64F)
+            
+        
 6. 扩张函数
 
         kernel = np.ones((5,5),np.uint8)
@@ -122,6 +129,7 @@ while True:
 
     cv2.waitKey(1)
 ```
+
 # some practices for homework and learning
 
 ## tutorial 1

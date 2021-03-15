@@ -177,6 +177,24 @@ while(1):
         break
 cv.destroyAllWindows()
 ```
+13. 相加
+            
+            cv2.add(src1,src2)#大于255的视作255
+            src1+src2##大于255的对255取模
+            cv2.addweighted(src1,alpha,src2,beta,gamma)src1*alpha+src2*beta+gamma
+14. 找到并跟踪某颜色：
+
+            green = np.uint8([[[0,255,0 ]]])
+            hsv_green = cv.cvtColor(green,cv.COLOR_BGR2HSV)
+            print( hsv_green )## take [H-10, 100,100] and [H+10, 255, 255] as the lower bound and upper bound respectively.
+            
+15. 阈值设置：
+            
+            ret,img = cv2.thrashold(img,lower,upper,cv.THRESH_BINARY/THRESH_BINARY_INV/cv.THRESH_TRUNC/cv.THRESH_TOZERO/cv.THRESH_TOZERO_INV)
+            
+            **adaptiveThreshold**
+            
+            img = cv2.adaptiveThreshold(img,maxValue,cv.ADAPTIVE_THRESH_GAUSSIAN_C/cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY,blocksize,C)
 # some practices for homework and learning
 
 ## tutorial 1

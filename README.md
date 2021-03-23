@@ -195,6 +195,29 @@ cv.destroyAllWindows()
             **adaptiveThreshold**
             
             img = cv2.adaptiveThreshold(img,maxValue,cv.ADAPTIVE_THRESH_GAUSSIAN_C/cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY,blocksize,C)
+            
+16. 双边滤波
+            对图像的边缘信息能更好地保留
+            blur = cv.bilateralFilter(img,9,75,75)
+
+17.形态学变换
+
+            kernel = np.ones((5,5),np.uint8)
+            erosion = cv.erode(img,kernel,iterations = 1)##腐蚀
+            ---
+            dilation = cv.dilate(img,kernel,iterations = 1)##扩张
+            ---
+            opening = cv.morphologyEx(img, cv.MORPH_OPEN, kernel)##开运算||能够排除小团块物体(假设物体较背景明亮)，开运算的结果删除了不能包含结构元素的对象区域，平滑了对象的轮廓，断开了狭窄的连接，去掉了细小的突出部分，如下图所示：左图是原图像，右图是采用开运算转换之后的结果图，可以发现字母拐弯处的白色空间消失。
+            ---
+            closing = cv.morphologyEx(img, cv.MORPH_CLOSE, kernel)##关运算||能够排除小型黑洞(黑色区域)，能够平滑对象的轮廓，但是与开运算不同的是闭运算一般会将狭窄的缺口连接起来形成细长的弯口，并填充比结构元素小的洞
+            ---
+            gradient = cv.morphologyEx(img, cv.MORPH_GRADIENT, kernel)#形态学梯度，可以保留物体的边缘轮廓
+            ---
+            tophat = cv.morphologyEx(img, cv.MORPH_TOPHAT, kernel)##顶帽，原图像与开运算图像之差||顶帽操作往往用来分离比邻近点亮一些的板块，在一幅图像具有大幅背景而微小物品比较有规律的情况下，可以使用顶帽运算进行背景提取。
+            ---
+            blackhat = cv.morphologyEx(img, cv.MORPH_BLACKHAT, kernel)##闭运算与原图之差||用来分离比邻近点暗一些的斑块，效果图有着非常完美的轮廓
+
+18. 
 # some practices for homework and learning
 
 ## tutorial 1

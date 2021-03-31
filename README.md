@@ -3,12 +3,16 @@ digital image processing
 
 1. 阈值处理  
 
-```retval,otsu = cv2.threshold(grayscales,125,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)```
+```python
+retval,otsu = cv2.threshold(grayscales,125,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+```
 
 2. 读取摄像头
+          
+        cap = cv2.VideoCapture(0)  
             
-       cap = cv2.VideoCapture(0)
-            #打开电脑的摄像头
+            #打开电脑的摄像头  
+            
         cap.set(10,100)
 
         while True:
@@ -17,6 +21,7 @@ digital image processing
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 #按q退出
                 break
+                
                 
 3. 灰度函数
           
@@ -61,7 +66,7 @@ or
         ver = np.vstack((img,img))
         
 10. 定义拼图的函数：
-```
+```python
 def stackImages(scale,imgArray):
     rows = len(imgArray)
     cols = len(imgArray[0])
@@ -94,7 +99,7 @@ def stackImages(scale,imgArray):
     return ver
 ```
 11. 检测颜色
-```
+```python
 cv2.namedWindow('TrackBars')
 cv2.resizeWindow('TrackBars',640,240)
 def empty(a):
@@ -142,7 +147,7 @@ while True:
         **cv.EVENT_MOUSEWHEEL    10  滑动滚轮上下滚动
         **cv.EVENT_MOUSEHWHEEL   11  滑动滚轮左右滚动**
 
-```
+```python
 drawing = False # true if mouse is pressed
 mode = True # if True, draw rectangle. Press 'm' to toggle to curve
 ix,iy = -1,-1
